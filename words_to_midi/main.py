@@ -9,7 +9,7 @@ def go(note, duration, player):
 
 
 def chord(notes, player, base=50):
-    duration = 1/8
+    duration = 1/2
     for note in notes:
         if note < 0:
             time.sleep(duration)
@@ -47,5 +47,5 @@ if __name__ == "__main__":
         Я вас любил так искренно, так нежно, 
         Как дай вам бог любимой быть другим.
         """
-
+    words ="Таня"
     play(words)
