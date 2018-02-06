@@ -1,18 +1,14 @@
 import sys
-from PyQt5.QtWidgets import (QWidget, QDesktopWidget, QMainWindow, QToolTip, QPushButton, QApplication, QHBoxLayout, QVBoxLayout, QTextEdit, QGridLayout)
-from PyQt5.QtGui import QFont, QIcon
+from PyQt5.QtWidgets import (QWidget, QDesktopWidget, QPushButton, QApplication, QTextEdit, QGridLayout)
+
 
 class MainApplication(QWidget):
 
     def __init__(self):
-
         super().__init__()
         self.initUI()
 
     def initUI(self):
-
-        QToolTip.setFont(QFont("SansSerif", 10))
-
         btn = QPushButton("Get unique words", self)
         btn.clicked.connect(self.buttonClicked)
 
@@ -21,11 +17,9 @@ class MainApplication(QWidget):
 
         grid = QGridLayout()
         grid.setSpacing(10)
-
         grid.addWidget(self.full_text, 1, 1)
         grid.addWidget(self.unique_text, 1, 2)
         grid.addWidget(btn, 2, 2)
-
         self.setLayout(grid)
 
         self.resize(500, 500)
@@ -35,14 +29,12 @@ class MainApplication(QWidget):
         self.show()
 
     def center(self):
-
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
     def buttonClicked(self):
-
         text = self.full_text.toPlainText()
         text_list = str(text).lower().split()
         text = sorted(set(text_list))
